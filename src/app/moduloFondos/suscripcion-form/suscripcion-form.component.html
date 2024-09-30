@@ -1,0 +1,23 @@
+<div class="fondos-container">
+    <div class="fondos-info">
+        <h2>Suscripcion</h2>
+    </div>
+  
+    <form (ngSubmit)="suscribirse()" #suscripcionForm="ngForm" class="suscripcion-form">
+        <div class="form-message">
+            <label for="message">{{ mensaje }}</label>
+        </div>
+        
+        <div class="form-group">
+            <label for="fondoNombre">Fondo</label>
+            <input type="text" id="fondoNombre" name="fondoNombre" [(ngModel)]="fondoNombre" required class="form-input1" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="monto">Monto</label>
+            <input type="number" id="monto" name="monto" [(ngModel)]="monto" required class="form-input">
+        </div>
+        
+        <button type="submit" class="btn suscribir-btn">Suscribirse</button>
+    </form>
+</div>

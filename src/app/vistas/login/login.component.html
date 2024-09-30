@@ -1,0 +1,8 @@
+<div class="login-container">
+  <h2>Welcome Banco</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="document">Ingrese documento:</label>
+    <input type="text" id="document" [(ngModel)]="documento" name="documento" required>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+  </form>
+</div>

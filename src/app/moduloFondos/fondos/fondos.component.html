@@ -1,0 +1,44 @@
+<div class="fondos-outer-container"> 
+  <div class="fondos-principal">
+    <div class="fondos-menu">
+      <button 
+        (click)="mostrarFondos('misFondos'); actualizarSaldo(); cargarMisTransacciones()" 
+        [ngClass]="{'active': viewFondos === 'misFondos'}" 
+        class="btn btn-primary">
+        Mis Fondos
+      </button>
+      <button 
+        (click)="mostrarFondos('nuevosFondos')" 
+        [ngClass]="{'active': viewFondos === 'nuevosFondos'}" 
+        class="btn btn-primary">
+        Nuevos Fondos
+      </button>
+    </div>
+    <div class="fondos-content">
+      <div class="fondos-list-container">
+        <div *ngIf="viewFondos === 'misFondos'" class="fondos-list">
+          <ul>
+            <li *ngFor="let transaccion of misFondos">
+              Fondo: {{ transaccion.nombreFondo }} - {{ transaccion.tipo }} - ${{ transaccion.monto }}
+              <button class="cancel-btn" (click)="cancelTransaction(transaccion.id, identificacion || '', transaccion.monto)">Cancelar</button>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="viewFondos === 'nuevosFondos'" class="fondos-list">
+          <ul>
+            <li *ngFor="let fondo of nuevosFondos">
+              Fondo: {{ fondo.nombre }} - Monto Mínimo: ${{ fondo.montoMinimo }} - Categoría: {{ fondo.categoria }}
+              <button class="suscribir-btn" (click)="seleccionarFondo(fondo)">Suscribirse</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="suscripcion-container" *ngIf="mostrarFormulario">
+        <app-suscripcion-form 
+          [fondoId]="fondoSeleccionado ? fondoSeleccionado.id : null" 
+          [fondoNombre]="fondoSeleccionado ? fondoSeleccionado.nombre : null">
+        </app-suscripcion-form>
+      </div>
+    </div>
+  </div>
+</div>

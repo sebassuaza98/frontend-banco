@@ -1,0 +1,8 @@
+<h3><strong>Historial Transacciones</strong></h3>
+<div class="transacciones-container">
+  <ul>
+    <li *ngFor="let transaccion of transacciones">
+      Fondo: {{ transaccion.nombreFondo }} - Tipo: {{ transaccion.tipo }} - Monto: {{ transaccion.monto }} - Fecha: {{ transaccion.fecha }}
+    </li>
+  </ul>
+</div>

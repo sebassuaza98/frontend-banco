@@ -1,0 +1,14 @@
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14  # Especifico la versión de Node.js
+    commands:
+      - echo "Instalando dependencias..."
+      - npm install
+  build:
+    commands:
+      - echo "Construyendo la aplicación..."
+      - ng build --prod  # Construyo la aplicación para producción
+artifacts:
+  files:
+    - dist/browser**  # Especifico los artefactos generados para desplegar

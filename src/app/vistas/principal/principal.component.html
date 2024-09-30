@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="fondos-header-container">
+    <app-header></app-header>
+  </div>
+
+  <div class="main-layout">
+    <div class="sidebar">
+      <h3 class="sidebar-title">Menú:</h3>
+      <button (click)="mostrarFondos()" class="btn">Fondos</button>
+      <button (click)="mostrarTransacciones()" class="btn">Transacciones</button>
+    </div>
+
+    <div class="content-container">
+      <div *ngIf="currentView === 'fondos'">
+        <app-fondos></app-fondos>
+      </div>
+      <div *ngIf="currentView === 'transacciones'">
+        <app-transacciones></app-transacciones>
+      </div>
+    </div>
+  </div>
+</div>
